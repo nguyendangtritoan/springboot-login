@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to my website!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F0F0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #1E90FF;
+            color: #FFF;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: normal;
+        }
+
+        p {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            display: block;
+            background-color: #1E90FF;
+            color: #FFF;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            background-color: #FFF;
+            color: #1E90FF;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <p>Please select an option below:</p>
+    <ul>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+</div>
+</body>
+</html>

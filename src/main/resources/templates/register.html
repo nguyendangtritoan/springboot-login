@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        form {
+            width: 400px;
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=submit], input[type=button] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover, input[type=button]:hover {
+            background-color: #3e8e41;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+<h1>Register</h1>
+<form method="POST" th:object="${user}" action="#" th:action="@{/register}">
+    <div th:if="${#fields.hasAnyErrors()}">
+        <div class="error">
+            <ul>
+                <li th:each="error : ${#fields.allErrors()}" th:text="${error}"></li>
+            </ul>
+        </div>
+    </div>
+    <div th:if="${exception != null}" class="error">
+        <p th:text="${exception}"></p>
+    </div>
+    <table>
+        <tr>
+            <td><label for="firstName">First Name:</label></td>
+            <td><input type="text" id="firstName" th:field="*{firstName}" /></td>
+        </tr>
+        <tr>
+            <td><label for="lastName">Last Name:</label></td>
+            <td><input type="text" id="lastName" th:field="*{lastName}" /></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td><label for="birthday">Birthday:</label></td>
+            <td><input type="date" id="birthday" th:field="*{birthday}" /></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="Register" /></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="button" onclick="location.href='/';" value="Back" /></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
